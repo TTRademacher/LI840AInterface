@@ -56,8 +56,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:text="Home"
-            android:onClick="goHomeScreen"
+            android:text="Next measurement"
+            android:onClick="goNewDataSet"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="0.25"
