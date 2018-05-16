@@ -492,6 +492,43 @@ public class fileDirectory extends AppCompatActivity implements OnClickListener 
         startActivity(homeScreen);
 
     }
+    
+    //This is a method to open the measurement screen from the home button
+    public void goNewDataSet(View view)
+    {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA}, 10);
+            return;
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 11);
+            return;
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 12);
+            return;
+        }
+
+        Intent metaData;
+
+        metaData = new Intent(this, metaData.class);
+        metaData.putExtra("FLAG", "False");
+
+        startActivity(metaData);
+
+    }
 
     //This method is responsible for sorting the files into a newest-first ordering
     ArrayList<String> sortFiles(String[] allFiles){
